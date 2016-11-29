@@ -1,0 +1,11 @@
+.has-error {
+  color: #a94442;
+}
+
+.form-control.has-error {
+  border-color: #a94442;
+}
+
+.democlass{
+    color: red;
+  }

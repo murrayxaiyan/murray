@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  
+  <!-- Dependencias CSS -->
+  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<body>
+<div class="container">
+  <h1>Eventos en jQuery</h1>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Eventos</h3>
+    </div>
+    <div class="panel-body">
+      <!-- Evento clic -->
+      <button id="eventClic" class="btn btn-primary">
+        <i class="glyphicon glyphicon-hand-up"></i>
+        Texto
+      </button>
+       <button id="Color" class="btn btn-primary">
+        <i class="glyphicon glyphicon-hand-up"></i>
+        Cambiar Color
+      </button>
+       <button id="eventM" class="btn btn-primary">
+        <i class="glyphicon glyphicon-hand-up"></i>
+        Procesar
+      </button>
+      <div style="margin: 10px"></div>
+
+      <div id="mensajeEv" style="display: none">
+        <p><i class="glyphicon glyphicon-fire"></i> Soy un mensaje secreto</p>
+      </div>
+       <hr />
+      <!-- Evento MouseOver -->
+      <button id="eventoMouseOver" class="btn btn-primary">
+        <i class="glyphicon glyphicon-hand-up"></i>
+        Acerca el mouse por aquí
+      </button>
+      <div style="margin: 10px"></div>
+      <div id="mensajeEventoMouseOver" class="alert alert-info" style="display: none">
+        <i class="glyphicon glyphicon-fire"></i>
+        Soy un mensaje que está debajo de tu mouse
+      </div>
+      <hr />
+      <div class="form-group">
+        <label>Escribe en el siguiente campo: </label>
+        <input type="text" class="form-control" id="campo" name="campo" />
+        <div id="mensajeEventoKeyDown" class="alert alert-info" style="display: none">
+          <i class="glyphicon glyphicon-fire"></i>
+          Soy un mensaje que aparece al teclear
+        </div>
+      </div>
+      <hr />
+      <div class="form-group">
+        <label>Haz clic en el siguiente campo: </label>
+        <input type="text" class="form-control" id="campo_2" name="campo_2" />
+        <div id="mensajeEventoFocus" class="alert alert-info" style="display: none">
+          <i class="glyphicon glyphicon-fire"></i>
+          Soy un mensaje que aparece al entrar dentro de este input
+        </div>
+      </div>
+      <hr />
+      <div class="form-group">
+        <button id="eventoMagia" class="btn btn-success">
+          Soy un botón que hace magia
+        </button>
+      </div>
+      <hr />
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+</div>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<style>
+  .democlass{
+    color: red;
+  }
+</style>
+
+<script>
+$(document).ready(function(){
+  $('#eventClic').click(function(){
+    var elem = $('#mensajeEv');
+    if(elem.css('display') == 'none'){
+
+
+    elem.show('slow');
+
+    $('#Color').click(function(){
+      //$("p")
+      document.getElementsByTagName("p")[0].setAttribute("class", "democlass");
+    })
+  }else{
+    elem.hide('slow');
+  }
+  });
+
+  $('#eventM').click(function(){
+    $.get("procesar.php", function(data, status){
+      alert("Data: " + data + "\nStatus: " + status);
+    });
+  });
+});
+</script>
+</body>
+</html>
